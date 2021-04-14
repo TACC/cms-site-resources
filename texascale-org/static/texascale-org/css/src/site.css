@@ -12,8 +12,7 @@
 /* … */
 
 /* ELEMENTS */
-@import url("_imports/elements/sectioning.css");
-@import url("_imports/elements/sectioning.headings.css");
+@import url("_imports/elements/html-elements.css");
 
 /* OBJECTS */
 /* … */

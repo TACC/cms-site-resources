@@ -5,6 +5,7 @@
 
 /* Overwrite `_imports/elements/sectioning.css` */
 main,
+/* NOTE: Using ID until it is replaced with `main` */
 #content-wrap {
   padding-bottom: 0;
 }

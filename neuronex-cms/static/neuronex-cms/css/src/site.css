@@ -7,10 +7,10 @@
 /* … */
 
 /* GENERICS */
-@import url("_imports/generic/roots.css");
+/* … */
 
 /* ELEMENTS */
-/* … */
+@import url("_imports/elements/html-elements.css");
 
 /* OBJECTS */
 /* … */

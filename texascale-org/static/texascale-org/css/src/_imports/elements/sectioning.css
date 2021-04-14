@@ -1,7 +1,0 @@
-/* ELEMENTS: Sectioning */
-
-main,
-/* HACK: Using ID until upstream updates markup via `quick/create-and-document-element-stylesheets` */
-#content-wrap {
-  padding-bottom: var(--global-space-beneath-main-content);
-}

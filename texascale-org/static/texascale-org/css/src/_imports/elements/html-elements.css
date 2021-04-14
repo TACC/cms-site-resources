@@ -1,4 +1,12 @@
-/* ELEMENTS: Sectioning (Headings)
+/* ELEMENTS: Content Sectioning */
+
+main,
+/* NOTE: Using ID until it is replaced with `main` */
+#content-wrap {
+  padding-bottom: var(--global-space-beneath-main-content);
+}
+
+/* ELEMENTS: Content Sectioning: Headings
 
 - `h1` = story titles
 - `h2` = story subtitles
