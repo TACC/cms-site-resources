@@ -17,6 +17,8 @@ _CMS_TEMPLATES = (
     ('fullwidth.html', 'Fullwidth'),
     ('frontera-cms/templates/fullwidth.html', 'DEPRECATED Fullwidth'),
 
+    ('frontera-cms/templates/home.html', 'Homepage'),
+
     ('guide.html', 'Guide'),
     ('guides/getting_started.html', 'Guide: Getting Started'),
     ('guides/data_transfer.html', 'Guide: Data Transfer'),

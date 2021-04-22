@@ -1,0 +1,113 @@
+/* TACC TRUMPS: Home (Page) */
+@import url("../../../../../../../../taccsite_cms/static/site_cms/css/src/_imports/tools/x-truncate.css");
+@import url("../../../../../../../../taccsite_cms/static/site_shared/css/src/_imports/tools/x-center.css");
+@import url("../../../../../../../../taccsite_cms/static/site_shared/css/src/_imports/tools/media-queries.css");
+
+
+
+/* Banner */
+/* Introduction */
+
+.s-home__banner,
+.s-home__intro {
+  --banner-margin-horz: 25px;
+}
+
+
+
+/* Banner */
+
+.s-home__banner {
+  position: relative; /* for `position: absolute` children */
+}
+@media (--medium-and-below) {
+  .s-home__banner { height: auto; }
+}
+@media (--medium-and-above) {
+  .s-home__banner { height: 40.5rem; }
+}
+
+.s-home__banner .o-section__banner-overlay {
+  font-size: 2.4rem;
+  font-weight: var(--bold);
+
+  padding: 1em 3.0rem; /* GH-99: Use standard spacing value */
+  margin: 0 var(--banner-margin-horz);
+
+  @extend .x-center--vert-inline-multiline--flex;
+}
+.s-home__banner .o-section__banner-overlay p {
+  @extend .x-truncate--many-lines;
+  --lines: 11 !important; /* WARNING: Fixing unclear specificity issue */
+}
+@media (--wide-and-above) {
+  .s-home__banner .o-section__banner-image {
+    /* The offset is to align image at 1200px to position in design */
+    top: calc(50% - 6%); /* overwrite `.o-section__banner-image` */
+  }
+}
+
+
+
+/* Introduction */
+
+.s-home__intro p {
+  font-size: 1.8rem;
+  font-weight: var(--bold);
+}
+@media (--wide-and-above) {
+  .s-home__intro p {
+    /* Forces width to match design */
+    padding-right: 3.0rem; /* GH-99: Use standard spacing value */
+  }
+}
+
+.s-home__intro .s-sysmon {
+  align-self: center;
+
+  display: flex;
+  align-items: center;
+  justify-items: center;
+
+  overflow-x: auto;
+}
+@media (--narrow-and-below) {
+  .s-home__intro .s-sysmon {
+    padding-top: 0.5rem; /* GH-99: Use standard spacing value */
+    padding-bottom: 0.5rem; /* GH-99: Use standard spacing value */
+  }
+}
+@media (--narrow-and-above) {
+  .s-home__intro div {
+    /* Forces smaller width, like design */
+    /* Uses consistent space, unlike design */
+    padding: 1.0rem; /* GH-99: Use standard spacing value */
+
+    margin: 0 var(--banner-margin-horz);
+  }
+}
+
+
+
+/* News */
+
+.s-home__news {
+  padding-top: 2.0rem;
+  padding-bottom: 2.5rem;
+}
+.s-home__news article {
+  margin-bottom: 3.0rem;
+}
+
+
+
+/* Other */
+
+.s-home__other [class*="s-article-list--"] {
+  min-height: 45.0rem;
+}
+
+/* To make user guides links take entire row when layout is 50/50 */
+@media (--narrow-to-medium), (--x-narrow-to-narrow) {
+  .s-home__other > :first-child { grid-column: 1 / -1; }
+}

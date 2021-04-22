@@ -1,0 +1,24 @@
+{% extends "./fullwidth.html" %}
+{% load cms_tags staticfiles %}
+
+{% block assets_custom %}
+  <link rel="stylesheet" href="{% static 'frontera-cms/css/build/site.css' %}">
+  <link rel="stylesheet" href="{% static 'frontera-cms/css/build/site.header.css' %}">
+
+  <style>
+  /* To simplify calculation of `rem` values */
+  /* WARNING: This MUST ONLY be loaded on homepage */
+  /* FAQ: The Core and the rest of Frontera is NOT ready for this change */
+  html { font-size: 62.5%; /* 1rem = 10px */ }
+
+  /* To hide `.o-section--style-…` and `.o-section__banner-image` overflow */
+  /* FAQ: Isolate from Core and Frontera to avoid unexpected side-effects */
+  main,
+  /* HACK: Using ID until upstream updates markup via `quick/create-and-document-element-stylesheets` */
+  #content-wrap { overflow: hidden; }
+  </style>
+  <link rel="stylesheet" href="{% static 'frontera-cms/css/build/template.home.css' %}">
+{% endblock assets_custom %}
+
+{# FAQ: Common practice but unused, and template is unnecessary long-term #}
+{# {% block page_type_class %}s-home{% endblock page_type_class %} #}

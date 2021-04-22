@@ -1,0 +1,12 @@
+/* DO NOT ADD STYLES HERE; ONLY IMPORT OTHER STYLESHEETS */
+
+
+/* NOTE: This file exists so that the Portal and User Guide can load isolated header styles */
+
+/* Organize via ITCSS */
+/* SEE: https://confluence.tacc.utexas.edu/x/IAA9Cw */
+
+/* TRUMPS */
+@import url("_imports/trumps/s-home.css");
+@import url("../../../../../../taccsite_cms/static/site_cms/css/src/_imports/trumps/s-article-list.css");
+@import url("../../../../../../taccsite_cms/static/site_cms/css/src/_imports/trumps/s-article-preview.css");
