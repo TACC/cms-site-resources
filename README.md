@@ -1,8 +1,6 @@
 # TACC CMS Per-Site Resources
 
-Each CMS project uses the [Core CMS][core-cms-repo] resources, but also has access to this repo from which it can load assets, templates, and configuration specific to it.
-
-[core-cms-repo]: https://gitlab.tacc.utexas.edu/wma-cms/cms-site-template
+Each CMS project is built using the [TACC/Core-CMS](https://github.com/TACC/Core-CMS) repo, and that project's directory in this repo (from which it can load assets, templates, and configuration specific to the project).
 
 ## Reference
 
