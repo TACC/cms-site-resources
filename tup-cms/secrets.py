@@ -7,6 +7,12 @@
 # TUP CONFIGURATION
 
 ########################
+# DJANGO SETTINGS
+########################
+
+_LDAP_ENABLED = False
+
+########################
 # DJANGO CMS SETTINGS
 ########################
 
@@ -22,18 +28,14 @@ _GOOGLE_ANALYTICS_PROPERTY_ID = "UA-96034853-2"
 _GOOGLE_ANALYTICS_PRELOAD = True
 
 ########################
-# BRANDING & LOGOS
-########################
-
-# …
-
-########################
 # BRANDING.
+########################
 
 _BRANDING = [_TACC_BRANDING, _UTEXAS_BRANDING]
 
 ########################
 # LOGOS.
+########################
 
 _PORTAL_LOGO = [
     "tup",

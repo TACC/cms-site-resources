@@ -2,19 +2,6 @@
 
 /* FAQ: Changed `rem` to `em` to bypass Frontera CMS Bootstrap `font-size:10px;`; sometimes this fails, so `px` is used instead */
 
-.s-search-bar::part(button) {
-  /* Copied from `.btn` from `archive/bootstrap.3.3.7.css` */
-  /* FAQ: The `button-radius` instance of `rem` is not included because it is overwritten by TACC styles */
-  font-size: 1em;
-}
-
-.s-search-bar::part(form) {
-  /* Copied from `.container` from Portal */
-  /* SEE: https://github.com/TACC/Frontera-Portal/blob/master/client/src/components/DataFiles/DataFilesSearchbar/DataFilesSearchbar.module.css */
-  /* FAQ: See "FAQ: Changed `rem` […]" */
-  font-size: 0.75em;
-}
-
 .s-search-bar::part(button__icon) {
   /* Copied from `.btn` from `src/_imports/trumps/shared/icon.css` */
   font-size: 18px;
@@ -23,11 +10,6 @@
   margin-right: 12px;
 }
 
-.s-search-bar::part(input) {
-  /* Copied from `.btn` from Bootstrap 4.0.0 */
-  /* SEE: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css */
-  font-size: 1em;
-}
 .s-search-bar::part(input):focus {
   /* Copied from `.form-control:focus` from Bootstrap 4.0.0 */
   /* SEE: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css */

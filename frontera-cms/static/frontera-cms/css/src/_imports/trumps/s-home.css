@@ -1,7 +1,9 @@
 /* TACC TRUMPS: Home (Page) */
 @import url("../../../../../../../../taccsite_cms/static/site_cms/css/src/_imports/tools/x-truncate.css");
-@import url("../../../../../../../../taccsite_cms/static/site_shared/css/src/_imports/tools/x-center.css");
-@import url("../../../../../../../../taccsite_cms/static/site_shared/css/src/_imports/tools/media-queries.css");
+@import url("../../../../../../../../taccsite_cms/static/site_cms/css/src/_imports/tools/x-center.css");
+@import url("../../../../../../../../taccsite_cms/static/site_cms/css/src/_imports/tools/media-queries.css");
+
+
 
 
 
@@ -15,7 +17,13 @@
 
 
 
+
+
 /* Banner */
+
+
+
+/* Container */
 
 .s-home__banner {
   position: relative; /* for `position: absolute` children */
@@ -24,28 +32,153 @@
   .s-home__banner { height: auto; }
 }
 @media (--medium-and-above) {
-  .s-home__banner { height: 40.5rem; }
+  .s-home__banner { height: 55.5rem; }
 }
 
 .s-home__banner .o-section__banner-overlay {
+  --spacing: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 0; /* allow grid item to shrink shorter than content */
+
   font-size: 2.4rem;
   font-weight: var(--bold);
 
-  padding: 1em 3.0rem; /* GH-99: Use standard spacing value */
+  padding: var(--spacing); /* GH-99: Use standard spacing value */
   margin: 0 var(--banner-margin-horz);
-
-  @extend .x-center--vert-inline-multiline--flex;
 }
-.s-home__banner .o-section__banner-overlay p {
-  @extend .x-truncate--many-lines;
-  --lines: 11 !important; /* WARNING: Fixing unclear specificity issue */
+
+
+
+/* Children */
+
+/* Text */
+.s-home__banner .o-section__banner-overlay > p {
+  /* NOTE: Design did not request truncation; Dev added it for safety */
+  @extend %x-truncate--many-lines;
+  /* WARNING: Using `!important` to fix unclear specifity issue */
+  --lines: 6 !important;
+
+  /* FAQ: The top margin is N lines × 1.4 line-height (from `body`) */
+  margin: calc(var(--margin-lines, 0) * 1.4em) var(--spacing) var(--spacing);
 }
 @media (--wide-and-above) {
-  .s-home__banner .o-section__banner-image {
-    /* The offset is to align image at 1200px to position in design */
-    top: calc(50% - 6%); /* overwrite `.o-section__banner-image` */
+  .s-home__banner .o-section__banner-overlay > p { --margin-lines: 2; }
+}
+@media (--medium-and-above) and (--wide-and-below) {
+  .s-home__banner .o-section__banner-overlay > p { --margin-lines: 1; }
+}
+
+/* Image */
+.s-home__banner .o-section__banner-image {
+  /* To overwrite `.o-section__banner-image` */
+  /* To align and size image to match design (as close as possible) */
+  top: calc(50% - 9.5%);
+  left: calc(50% - 13%);
+  width: 124.5vw;
+}
+
+/* List */
+.s-home__banner .o-section__banner-overlay section {
+  flex-grow: 0;
+
+  display: flex;
+  padding-left: 0;
+  list-style-type: none;
+  border-top: 1px solid var(--global-color-primary--xx-light);
+}
+
+
+
+/* Articles */
+
+.s-home__banner .o-section__banner-overlay article {
+  padding: var(--spacing);
+}
+@media (--x-narrow-and-below) {
+  .s-home__banner .o-section__banner-overlay section { flex-wrap: wrap; }
+  .s-home__banner .o-section__banner-overlay article {
+    flex-shrink: 0;
+    flex-basis: 100%;
+  }
+  /* To reduce space between articles */
+  .s-home__banner .o-section__banner-overlay article + article {
+    margin-top: calc(-1 * var(--spacing));
   }
 }
+@media (--x-narrow-and-above) {
+  .s-home__banner .o-section__banner-overlay section { flex-wrap: nowrap; }
+  .s-home__banner .o-section__banner-overlay article {
+    flex-shrink: 1;
+    flex-basis: 50%;
+  }
+  /* To add line between articles */
+  .s-home__banner .o-section__banner-overlay article + article {
+    border-left: 1px solid var(--global-color-primary--xx-light);
+  }
+}
+
+/* Image */
+.s-home__banner .o-section__banner-overlay article p:first-child {
+  margin-bottom: 0;
+}
+.s-home__banner .o-section__banner-overlay article p:first-child img {
+  height: 200px;
+  transform: unset;
+  top: unset;
+  left: unset;
+  border: 1px solid var(--global-color-primary--xx-light);
+}
+
+/* Caption */
+.s-home__banner .o-section__banner-overlay article ul {
+  position: absolute;
+  bottom: var(--spacing);
+  left: var(--spacing);
+  right: var(--spacing);
+  /* Ensure caption shows above image (in Firefox) */
+  /* FAQ: Because `order` is ineffectual due to `position: absolute` */
+  /* SEE: https://css-tricks.com/flexbox-and-absolute-positioning/ */
+  z-index: 1;
+
+  padding: 7px var(--spacing);
+  /* To overwrite `s-article-preview` */
+  /* To let image border show through */
+  margin: 1px;
+
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(30px) brightness(115%);
+
+
+  font-weight: 700;
+}
+/* Caption: Title */
+.s-home__banner .s-article-preview h3 {
+  @extend %x-truncate--many-lines;
+  --lines: 3;
+
+  /* To ensure consistent height of three lines */
+  /* FAQ: The `2.4rem` line-height was copied from `s-article-preview` */
+  height: calc(2.4rem * var(--lines));
+
+  margin-bottom: 0;
+
+  font-size: 1.6rem;
+}
+/* Caption: Type */
+.s-home__banner .s-article-preview ul > li:nth-child(2) {
+  font-size: 1.0rem;
+}
+/* Caption: Link */
+.s-home__banner .s-article-preview p:last-child > a:hover {
+  outline-color: var(--global-color-primary--xx-light);
+  outline-offset: calc(-1 * var(--spacing));
+}
+
+
 
 
 

@@ -17,8 +17,7 @@ _LDAP_ENABLED = True
 ########################
 
 _CMS_TEMPLATES = (
-    ('protx-cms/templates/fullwidth.html', 'Fullwidth'),
-    ('fullwidth.html', 'DEPRECATED Fullwidth'),
+    ('protx-cms/templates/fullwidth.html', 'Fullwidth')
 )
 
 ########################
@@ -29,18 +28,14 @@ _GOOGLE_ANALYTICS_PROPERTY_ID = "UA-125525035-##"
 _GOOGLE_ANALYTICS_PRELOAD = True
 
 ########################
-# BRANDING & LOGOS
-########################
-
-# …
-
-########################
 # BRANDING.
+########################
 
 _BRANDING = [_NSF_BRANDING, _TACC_BRANDING, _UTEXAS_BRANDING]
 
 ########################
 # LOGOS.
+########################
 
 _PORTAL_LOGO = [
     "protx",
