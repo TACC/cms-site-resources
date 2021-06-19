@@ -5,8 +5,5 @@
 
 /* COMPONENTS */
 
-/* TODO: Make alias for core's `src/` directory */
-/* WARNING: The `c-image-map` is not in Core `main`, yet. */
-/* SEE: https://github.com/TACC/Core-CMS/compare/hotfix/texascale-org/2020-launch */
-/* @import url("../../../../../../taccsite_cms/static/site_cms/css/src/_imports/components/c-image-map.css"); */
+@import url("../../../../../../taccsite_cms/static/site_cms/css/src/_imports/components/c-image-map.css");
 @import url("_imports/components/c-image-map.css");

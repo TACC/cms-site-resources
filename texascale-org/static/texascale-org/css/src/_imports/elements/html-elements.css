@@ -58,3 +58,16 @@ h6 {
 	margin: 35px 15px 15px 15px;
 	padding: 0px;
 }
+
+
+
+
+
+/* ELEMENTS: Table Content */
+
+table,
+td,
+th {
+  /* A table is only used on the homepage, and a border is not expected */
+  border: none;
+}
