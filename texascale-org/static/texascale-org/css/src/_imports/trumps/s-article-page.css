@@ -12,6 +12,7 @@ Markup:
 
 Styleguide Trumps.Scopes.Article
 */
+@import url("_imports/tools/media-queries.css");
 
 /* Prevent content after article from wrapping around floated content in article */
 .s-article-page .container,
@@ -23,9 +24,10 @@ Styleguide Trumps.Scopes.Article
 }
 
 /* Do this only for those viewports when content is actually offset */
-@media only screen and (min-width: 992px) and (max-width: 2400px) {
+@media only screen and (--medium-and-above) and (--max-wide-and-below) {
   /* If element is too wide, then the offset is negligible */
-  .s-article-page [class*="c-offset-content--"] {
+  .s-article-page [class*="c-offset-content--"], /* FAQ: Deprecated */
+  .s-article-page [class*="o-offset-content--"] {
     max-width: calc( var(--offset-distance) * 4 );
   }
 }

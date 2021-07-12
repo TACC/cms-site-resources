@@ -1,0 +1,42 @@
+/* WARNING: Deprecated. Do NOT add this to markup! */
+/* NOTE: Preserve for legacy support (unless you wanna update 50+ instances) */
+/* FAQ: 2019–20 used `c-offset-content`; 2021, renamed to `o-offset-content` */
+/* SEE: ../../objects/o-offset-content.css */
+/*
+(Deprecated) Offset Content
+
+Content that should be offset from the flow of text within which it is placed.
+
+Styleguide Components.Texascale.Deprecated.OffsetContent
+*/
+@import url("_imports/tools/media-queries.css");
+
+[class*="c-offset-content--"] {
+  --offset-distance: 8.5vw; /* NOTE: Value is from Texascale.org 2020 */
+	--buffer: 30px; /* double Bootstrap `.col` padding */
+
+  max-width: 50%;
+}
+
+@media only screen and (--medium-and-above) {
+	.c-offset-content--right {
+		float: right;
+		margin-left: var(--buffer);
+	}
+	.c-offset-content--right + .c-offset-content--right { clear: right; }
+
+	.c-offset-content--left {
+		float: left;
+		margin-right: var(--buffer);
+	}
+	.c-offset-content--left + .c-offset-content--left { clear: left; }
+}
+@media only screen and (--medium-and-above) and (--max-wide-and-below) {
+    /* Apply negative margin only when using offset value */
+	.c-offset-content--right {
+		margin-right: calc( var(--offset-distance) * -1);
+	}
+	.c-offset-content--left {
+		margin-left: calc( var(--offset-distance) * -1);
+	}
+}

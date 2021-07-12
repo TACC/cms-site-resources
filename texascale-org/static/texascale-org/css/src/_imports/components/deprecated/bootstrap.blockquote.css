@@ -1,10 +1,14 @@
+/* WARNING: Deprecated. Do NOT add this to markup! */
+/* NOTE: Preserve for legacy support (unless you wanna update 50+ instances) */
+/* FAQ: 2019–20 used Bootstrap `blockquote`; 2021 used `s-blockquote` */
+/* SEE: ../../trumps/s-blockquote.css */
+
 /* BOOTSTRAP COMPONENTS: Quote */
 
 .blockquote {
   margin-top: 20px;
   margin-bottom: 20px;
-}
-.blockquote {
+
   color: #b75554;
   font-size: 18px;
   font-style: italic;

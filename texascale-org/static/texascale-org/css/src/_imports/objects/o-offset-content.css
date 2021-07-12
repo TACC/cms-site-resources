@@ -1,0 +1,5 @@
+/* SEE: taccsite_cms/static/site_cms/css/src/_imports/objects/o-offset-content.css */
+
+[class*="o-offset-content--"] {
+	--offset-distance: 8.5vw;
+}
