@@ -8,5 +8,7 @@
 
 /* TRUMPS */
 @import url("_imports/trumps/s-home.css");
-@import url("../../../../../../taccsite_cms/static/site_cms/css/src/_imports/trumps/s-article-list.css");
-@import url("../../../../../../taccsite_cms/static/site_cms/css/src/_imports/trumps/s-article-preview.css");
+/* GH-93: Remove ONLY AFTER Frontera New Homepage uses Article plugins */
+@import url("_imports/trumps/deprecated/s-article-list.css");
+/* GH-134: Remove ONLY AFTER Frontera New Homepage uses Banner plugin */
+@import url("_imports/trumps/deprecated/s-article-preview.css");

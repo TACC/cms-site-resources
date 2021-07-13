@@ -1,0 +1,8 @@
+/* SEE: taccsite_cms/static/site_cms/css/src/_imports/trumps/s-blockquote.css */
+
+.s-blockquote blockquote {
+  color: #b75554;
+}
+.s-blockquote figcaption {
+  color: #636466;
+}
