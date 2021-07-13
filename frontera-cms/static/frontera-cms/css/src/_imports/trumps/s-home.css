@@ -228,7 +228,7 @@
   padding-top: 2.0rem;
   padding-bottom: 2.5rem;
 }
-.s-home__news article {
+.s-home__news .c-article-preview {
   margin-bottom: 3.0rem;
 }
 
@@ -236,8 +236,14 @@
 
 /* Other */
 
-.s-home__other [class*="s-article-list--"] {
+.s-home__other .c-article-list {
   min-height: 45.0rem;
+}
+
+/* To make link hover repicate `outline-offset` but only horizontally */
+.s-home__other .c-article-preview__link::before {
+  width: calc(100% + 30px); /* GH-99: Use standard spacing value */
+  left: -15px;
 }
 
 /* To make user guides links take entire row when layout is 50/50 */

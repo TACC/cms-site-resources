@@ -1,0 +1,265 @@
+/* WARNING: Deprecated. Do NOT add this to markup! */
+/* GH-93: Delete ONLY AFTER Frontera New Homepage uses Article plugins */
+/*
+(Deprecated) Article Preview
+
+A preview of an article (to be used in a `s-article-list`). Content __must__ come in the order and use the tags defined by the example markup.
+
+Markup:
+<article class="s-article-preview">
+  <p><img src="…" alt="…" /></p>
+  <ul>
+    <li>
+      <h3>A Long Title of Article (Usually a News Article)</h3>
+    </li>
+    <li>Science News</li>
+  </ul>
+  <p><a href="…" /></p>
+</article>
+
+Styleguide Trumps.Deprecated.Scopes.ArticlePreview
+*/
+@import url("_imports/tools/x-truncate.css");
+@import url("_imports/tools/x-article-link.css");
+
+
+
+
+
+/* Block */
+
+.s-article-preview {
+  position: relative; /* for absolutely positioned "Children: Link" */
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+/* Children */
+
+
+
+/* Children: Media */
+
+.s-article-preview p:first-child {
+  order: 1;
+
+  overflow: hidden;
+
+  margin-bottom: 0.8rem; /* overwrite Bootstrap */
+}
+.s-article-preview p:first-child > img {
+  /* To center image within container */
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.s-article-preview p:first-child > img.img-fluid {
+  /* To ensure super wide or tall image do not have negative space / gaps */
+  width: 100%;
+  object-fit: cover;
+  height: 100%; /* overwrite `.img-fluid` *//* NOTE: Sould this be standard? */
+}
+/* (List) News */
+.s-article-list--news .s-article-preview p:first-child {
+  height: 180px;
+}
+/* (List) Allocations */
+.s-article-list--allocations .s-article-preview p:first-child {
+  height: 10.0rem;
+}
+/* (List) Events */
+.s-article-list--events .s-article-preview p:first-child {
+  display: none;
+}
+
+
+/* Children: Title */
+
+.s-article-preview h3 {
+  order: 3;
+
+  margin-top: 0; /* overwrite Bootstrap and browser */
+  margin-bottom: 0.8rem; /* overwrite Bootstrap and browser */
+
+  font-size: 1.8rem;
+  font-weight: var(--bold);
+  line-height: 2.4rem;
+}
+/* (List) *//* FAQ: I.E. NOT the article previews inside a Hero Banner */
+[class*="s-article-list--"] .s-article-preview h3 {
+  @extend %x-truncate--one-line;
+}
+/* (List) Allocations */
+.s-article-list--allocations .s-article-preview h3 {
+  font-size: 1.6rem;
+  font-weight: var(--bold);
+}
+/* (List) Events */
+.s-article-list--events .s-article-preview h3 {
+  font-size: 1.4rem;
+  color: var(--global-color-primary--xx-dark);
+}
+
+
+
+/* Children: Abstract */
+
+.s-article-preview p:not(:first-child):not(:last-child) {
+  order: 4;
+
+  margin-bottom: 0; /* overwrite Bootstrap and browser */
+
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+/* (List) *//* FAQ: I.E. NOT the article previews inside a Hero Banner */
+[class*="s-article-list--"] .s-article-preview p:not(:first-child):not(:last-child) {
+  @extend %x-truncate--many-lines;
+  --lines: 3;
+}
+/* (List) Allocations */
+.s-article-list--allocations .s-article-preview p:not(:first-child):not(:last-child) {
+  display: none;
+}
+/* (List) Events */
+.s-article-list--events .s-article-preview p:not(:first-child):not(:last-child) {
+  font-size: 1.4rem;
+  color: var(--global-color-primary--xx-dark);
+}
+
+
+
+/* Children: Metadata */
+
+.s-article-preview ul {
+  order: 2;
+
+  display: flex;
+  flex-direction: column;
+
+  list-style: none;
+  padding-left: 0; /* overwrite `site.css` and browser */
+
+  margin-bottom: 0.8rem; /* overwrite Bootstrap */
+}
+/* (List) Allocations */
+.s-article-list--allocations .s-article-preview ul {
+  order: 5;
+}
+
+/* Children: Metadata: Date */
+
+.s-article-preview ul > li:nth-child(1) {
+  order: 2;
+
+  font-weight: var(--medium);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+/* (List) News */
+.s-article-list--news .s-article-preview ul > li:nth-child(1) {
+  margin-bottom: 0.8rem; /* overwrite Bootstrap */
+  font-size: 1.0rem;
+}
+.s-article-list--news .s-article-preview ul > li:nth-child(1)::before {
+  content: 'Published: ';
+  white-space: pre;
+}
+/* (List) Events */
+.s-article-list--events .s-article-preview ul > li:nth-child(1) {
+  font-size: 1.4rem;
+  color: var(--global-color-accent--normal);
+}
+/* (List) Allocations */
+.s-article-list--allocations .s-article-preview ul > li:nth-child(1) {
+  font-size: 1.6rem;
+}
+.s-article-list--allocations .s-article-preview ul > li:nth-child(1)::before {
+  content: 'Submission Deadlines: ';
+  white-space: pre;
+}
+
+/* Children: Metadata: Type */
+
+.s-article-preview ul > li:nth-child(2) {
+  order: 1;
+
+  font-size: 1.2rem;
+  font-weight: var(--bold);
+  text-transform: uppercase;
+}
+/* (List) Events */
+.s-article-list--events .s-article-preview ul > li:nth-child(2),
+/* (List) Allocations */
+.s-article-list--allocations .s-article-preview ul > li:nth-child(2) {
+  display: none;
+}
+
+/* Children: Metadata: Author */
+
+.s-article-preview ul > li:nth-child(3) {
+  order: 3;
+}
+/* (List) News */
+.s-article-list--news .s-article-preview ul > li:nth-child(3),
+/* (List) Events */
+.s-article-list--events .s-article-preview ul > li:nth-child(3),
+/* (List) Allocations */
+.s-article-list--allocations .s-article-preview ul > li:nth-child(3) {
+  display: none;
+}
+
+
+
+/* Children: Link */
+
+.s-article-preview p:last-child {
+  margin-bottom: 0; /* overwite Bootstrap and browser */
+}
+
+/* Expand link to cover its container */
+.s-article-preview p:last-child {
+  z-index: 1; /* ensure Link appears over Media */
+}
+.s-article-preview p:last-child > a {
+  color: transparent; /* ensure Link _text_ is invisible (allow decoration) */
+
+  @extend %x-article-link-stretch;
+}
+.s-article-list--layout-gapless .s-article-preview p:last-child > a {
+  /* NOTE: Deleted in GH-93 *//* @extend %x-article-link-stretch--gapless; */
+}
+/* Give link state (pseudo-class) feedback */
+.s-article-preview p:last-child > a:hover {
+  @extend %x-article-link-hover;
+}
+.s-article-list--layout-gapless .s-article-preview p:last-child > a:hover {
+  /* NOTE: Deleted in GH-93 *//* @extend %x-article-link-hover--gapless; */
+}
+
+
+
+
+
+/* Modifiers */
+
+
+
+/* Modifiers: (List) News, Allocations, Evetns, etc. */
+/* SEE: All "Children" styles */
+
+
+
+/* Modifiers: (List) Layout: Options */
+
+.s-article-list--layout-compact .s-article-preview > * {
+  margin-bottom: 0; /* overwrite `.s-article-preview > …` */
+}

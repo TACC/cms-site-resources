@@ -1,0 +1,245 @@
+/* WARNING: Deprecated. Do NOT add this to markup! */
+/* GH-134: Delete ONLY AFTER Frontera New Homepage uses Banner plugin */
+/* NOTE: This is independent of `taccsite_cms/.../s-article-list.css` */
+/*
+(Deprecated) Article List
+
+A list of article previews. Content __must__ use the tags defined by the example markup.
+
+Markup:
+<article class="s-article-list">
+  <h2>News</h2>
+  <article>(Article Preview)</article>
+  <article>(Article Preview)</article>
+  <article>(Article Preview)</article>
+  <p>
+    <a href="/more">See All</a>
+  </p>
+</article>
+
+Styleguide Trumps.Deprecated.Scopes.ArticleList
+*/
+@import url("_imports/tools/x-truncate.css");
+@import url("_imports/tools/x-layout.css");
+@import url("_imports/tools/x-article-link.css");
+
+
+
+
+
+/* Children */
+
+
+
+/* Children: All */
+
+/* Not "Title" & Not "See More" */
+.s-article-list--layout-e > :not(h2):not(p:last-child) {
+  /* To shrink heading */
+  flex-grow: 1;
+}
+
+
+
+/* Children: Title */
+
+.s-article-list--layout-a > h2,
+.s-article-list--layout-b > h2,
+.s-article-list--layout-c > h2,
+.s-article-list--layout-d > h2 {
+  /* To span all columns */
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+[class*="s-article-list--"] > h2 {
+  margin-top: 0; /* overwrite Bootstrap */
+  margin-bottom: 3.0rem; /* overwrite Bootstrap */
+
+  color: var(--global-color-accent--normal);
+
+  font-size: 1.6rem;
+  font-weight: var(--bold);
+  text-transform: uppercase;
+
+  @extend .x-truncate--one-line;
+}
+/* Add a fake short border above title */
+[class*="s-article-list--"] > h2 {
+  position: relative;
+  padding-top: 1em;
+}
+[class*="s-article-list--"] > h2::before {
+  content: '';
+  display: block;
+
+  position: absolute;
+  top: 0;
+  height: 0.5em;
+  width: 2.5em;
+
+  background-color: var(--global-color-accent--normal);
+}
+
+
+
+/* Children: "See More" */
+
+/* Anchor */
+
+.s-article-list--layout-a > p:last-child,
+.s-article-list--layout-b > p:last-child,
+.s-article-list--layout-c > p:last-child,
+.s-article-list--layout-d > p:last-child {
+  /* To span all columns */
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+[class*="s-article-list--"] > p:last-child {
+  border-top-width: var(--global-border-width--thick);
+  border-top-style: solid;
+
+  margin-top: 3.0rem; /* GH-99: Use standard spacing value */
+  margin-bottom: -1.0rem; /* to "undo" space added from `padding-bottom` */
+
+  font-size: 1.2rem;
+  font-weight: var(--bold);
+}
+[class*="s-article-list--"] > p:last-child a {
+  display: inline-block;
+
+  padding-top: 1.0rem;
+  padding-bottom: 1.0rem;
+  padding-right: 1.0rem;
+
+  @extend .x-truncate--one-line;
+  max-width: 100%; /* SEE: https://stackoverflow.com/a/44521595 */
+}
+/* Dark section */
+.o-section--style-dark[class*="s-article-list--"] > p:last-child,
+.o-section--style-dark [class*="s-article-list--"] > p:last-child {
+  border-color: var(--global-color-primary--xx-light);
+}
+.o-section--style-dark[class*="s-article-list--"] > p:last-child a,
+.o-section--style-dark [class*="s-article-list--"] > p:last-child a {
+  color: var(--global-color-primary--xx-light);
+}
+/* Light section */
+.o-section--style-light[class*="s-article-list--"] > p:last-child,
+.o-section--style-light [class*="s-article-list--"] > p:last-child {
+  border-color: var(--global-color-primary--xx-dark);
+}
+.o-section--style-light[class*="s-article-list--"] > p:last-child a,
+.o-section--style-light [class*="s-article-list--"] > p:last-child a {
+  color: var(--global-color-primary--xx-dark);
+}
+
+/* Icon */
+
+[class*="s-article-list--"] > p:last-child a::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f35a";
+  margin-right: 10px;
+
+  font-size: 1.4rem;
+  vertical-align: middle;
+
+  /* To hide the `text-decoration: underline` of the anchor */
+  /* SEE: https://stackoverflow.com/a/15688237/11817077 */
+  display: inline-block;
+}
+
+
+
+
+
+/* Modifiers */
+
+
+
+/* Modifiers: Links */
+
+.s-article-list--links {
+  font-size: 1.4rem;
+  color: var(--global-color-primary--xx-dark);
+}
+.s-article-list--links p:not(:last-child) {
+  margin: 0; /* Overwrite Bootstrap and browser */
+}
+.s-article-list--links p:not(:last-child) a {
+  font-weight: var(--bold);
+  color: var(--global-color-primary--xx-dark);
+}
+
+/* Expand link to cover its container */
+.s-article-list--links p:not(:last-child) { position: relative; }
+.s-article-list--links p:not(:last-child) a::before {
+  content: '';
+
+  @extend %x-article-link-stretch;
+}
+.s-article-list--layout-gapless.s-article-list--links p:not(:last-child) a::before {
+  /* FAQ: GH-93 removed this *//* @extend %x-article-link-stretch--gapless; */
+  /* HACK: Mimic what GH-93 removed */width: calc(100% + 30px); left: -15px;
+}
+/* Give link state (pseudo-class) feedback */
+.s-article-list--links p:not(:last-child) a:hover::before {
+  @extend %x-article-link-hover;
+}
+.s-article-list--layout-gapless.s-article-list--links p:not(:last-child) a:hover::before {
+  /* FAQ: GH-93 removed this *//* @extend %x-article-link-hover--gapless; */
+  /* HACK: Mimic what GH-93 removed */outline-offset: 0;
+}
+
+
+
+/* Modifiers: Layout */
+
+.s-article-list--layout-a { @extend .x-layout--a; }
+.s-article-list--layout-b { @extend .x-layout--b; }
+.s-article-list--layout-c { @extend .x-layout--c; }
+.s-article-list--layout-d { @extend .x-layout--d; }
+.s-article-list--layout-e { @extend .x-layout--e; }
+
+/* Modifiers: Layout: Column-Based */
+
+.s-article-list--layout-a,
+.s-article-list--layout-b,
+.s-article-list--layout-c,
+.s-article-list--layout-d {
+  column-gap: 3.0rem; /* GH-99: Use standard spacing value */
+}
+
+/* Modifiers: Layout: Row-Based */
+
+.s-article-list--layout-e {
+  /* … */
+}
+
+/* Modifiers: Layout: Options */
+
+.s-article-list--layout-gapless {
+  gap: 0;
+}
+
+.s-article-list--layout-compact > p:last-child {
+  margin-top: 0;
+}
+
+.s-article-list--layout-divided > :not(h2):not(p:last-child) {
+  padding-top: 0.8rem;
+
+  border-width: var(--global-border-width--normal) 0 0;
+  border-style: solid;
+}
+/* Dark section */
+.o-section--style-dark.s-article-list--layout-divided > :not(h2):not(p:last-child),
+.o-section--style-dark .s-article-list--layout-divided > :not(h2):not(p:last-child) {
+  border-color: var(--global-color-primary--light);
+}
+/* Light section */
+.o-section--style-light.s-article-list--layout-divided > :not(h2):not(p:last-child),
+.o-section--style-light .s-article-list--layout-divided > :not(h2):not(p:last-child) {
+  border-color: var(--global-color-primary--dark);
+}
