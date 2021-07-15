@@ -1,13 +1,15 @@
 /*
-NOTE: Relevant styles for Pre-2020 Bootstrap 3.3.7
-      - How: https://developers.google.com/web/tools/chrome-devtools/coverage
-      - How: Include code that _is being_ used
-      - How: Include code that _could be_ used (because it includes used selector)
-            - `__selector_start__` `__used_selector__` `__selector_end__`
-      - How: Did NOT incude code that is already in Bootstrap 4.0.0
-      - How: Did NOT incude code that represents outdated web practices
-            - `outline: none`
-      - Source CSS: https://bitbucket.org/taccaci/frontera/src/master/client/css/bootstrap.min.css
+CoreV1 Django CMS Bootstrap 3.3.7
+HOW: https://developers.google.com/web/tools/chrome-devtools/coverage
+HOW: Included code that _is being_ used
+HOW: Included code that _could be_ used (because it has used selector) e.g.:
+  - `used_selector …`
+  - `used_selector`
+  - `… used_selector`
+HOW: Did NOT incude code that is already in Bootstrap 4.0.0
+HOW: Did NOT incude code that represents outdated web practices e.g.:
+  - `outline: none`
+SRC: https://bitbucket.org/taccaci/frontera/src/master/client/css/bootstrap.min.css
 */
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700");
@@ -137,7 +139,9 @@ th {
 /* … */
 
 html {
- font-size:10px;
+ /* Disabled by TACC */
+ /* FAQ: Let TACC handle influence `rem`; this and more may be deleted anyway */
+ /* font-size:10px; */
  -webkit-tap-highlight-color:rgba(0,0,0,0)
 }
 body {

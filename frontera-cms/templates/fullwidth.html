@@ -14,14 +14,14 @@
 {% block assets_custom %}
   {{ block.super }}
 
+  <!-- To customize styles for this project -->
   <link rel="stylesheet" href="{% static 'frontera-cms/css/build/site.css' %}">
   <link rel="stylesheet" href="{% static 'frontera-cms/css/build/site.header.css' %}">
 
-  <!-- HACK: Style old CMS content on new CMS -->
-  <!-- FP-459: After the redesign of Frontera, remove these -->
-  <link class="css-site-old" rel="stylesheet" href="{% static 'frontera-cms/css/archive/bootstrap.3.3.7.css' %}">
-  <link class="css-site-old" rel="stylesheet" href="{% static 'frontera-cms/css/archive/angular-material.1.1.8.css' %}">
-  <!-- Order of `main` stylesheets: https://bitbucket.org/taccaci/frontera/src/master/client/src/index.js -->
-  <link class="css-site-old" rel="stylesheet" href="{% static 'frontera-cms/css/archive/main.portal.css' %}">
-  <link class="css-site-old" rel="stylesheet" href="{% static 'frontera-cms/css/archive/main.frontera.css' %}">
+  <!-- To style old CMS content on new CMS -->
+  <!-- NOTE: This should probably be loaded BEFORE "To customize styles …", but:
+             - Frontera was tested with this load order (so let it lie)
+             - Frontera is being redesigned (which will obviate this stylesheet)
+  -->
+  <link rel="stylesheet" href="{% static 'frontera-cms/css/build/migrate.v1_v2.css' %}">
 {% endblock assets_custom %}

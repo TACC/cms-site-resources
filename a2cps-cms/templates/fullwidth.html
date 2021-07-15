@@ -14,6 +14,9 @@
 {% block assets_custom %}
   {{ block.super }}
 
-  <!-- TODO: GH-56 a.k.a. TACC/Core-CMS#245: Pending v1 styles -->
+  <!-- To style old CMS content on new CMS -->
+  <link rel="stylesheet" href="{% static 'a2cps-cms/css/build/migrate.v1_v2.css' %}">
+
+  <!-- To customize styles for this project -->
   <link rel="stylesheet" href="{% static 'a2cps-cms/css/build/site.css' %}">
 {% endblock assets_custom %}

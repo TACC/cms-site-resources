@@ -1,10 +1,15 @@
 /*
-NOTE: Relevant styles for Pre-2020 `frontera.scss`
-      - How: Manually find and retain code that is still used
-      - Source CSS: https://fronteraweb.tacc.utexas.edu/static/main.….css
-      - Source SCSS: https://bitbucket.org/taccaci/frontera/src/master/client/css/frontera.scss
+CoreV1 Portal Stylesheet `frontera.scss`
+HOW: Manually find and retain code that is still used
+SRC: https://fronteraweb.tacc.utexas.edu/static/main.___.css
+SRC: https://bitbucket.org/taccaci/frontera/src/master/client/css/frontera.scss
 */
 
+/*!
+ * CoreV1 Portal Stylesheet `frontera.css`
+ * https://bitbucket.org/taccaci/frontera/src/master/client/css/frontera.scss
+ */
+/* FAQ: Though CMS default font is `Benton Sans`, old content uses these */
 @font-face {
     font-family: BentonSansBold;
     src: url("/static/frontera-cms/fonts/archive/BentonSans-Bold.otf");
@@ -22,6 +27,7 @@ NOTE: Relevant styles for Pre-2020 `frontera.scss`
 
 /* … */
 
+/* HELP: Wesley assumes that old content uses these… but where? */
 @font-face {
 	font-family: 'icon-worksregular';
 	src: url('/static/frontera-cms/fonts/archive/icon-works-webfont.eot');
