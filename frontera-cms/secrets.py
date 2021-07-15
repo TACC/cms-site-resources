@@ -46,6 +46,14 @@ _GOOGLE_ANALYTICS_PRELOAD = True
 
 # …
 
+_TACC_BRANDING = [
+    # …
+    "frontera-cms/img/org_logos/tacc-white.png",
+    # …
+]
+
+# …
+
 _BRANDING = [ _NSF_BRANDING, _TACC_BRANDING, _UTEXAS_BRANDING ]
 
 ########################
